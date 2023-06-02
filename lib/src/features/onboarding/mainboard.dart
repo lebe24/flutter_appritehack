@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_appritehack/src/constant/anime_constant.dart';
-import 'package:flutter_appritehack/src/widget/modal_page.dart';
+import 'package:flutter_appritehack/src/features/onboarding/widget/modal_page.dart';
 import 'package:video_player/video_player.dart';
 
 
@@ -17,7 +17,6 @@ class Onboard extends StatelessWidget {
           bottom: 30,
           child: Getstarted())
         ]
-       
       )
     );
   }

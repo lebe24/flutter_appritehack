@@ -1,6 +1,13 @@
-# flutter_appritehack
+# flutter Appwrite Hackathon Project --LyteTok
 
-A new Flutter project.
+![LiteTok](./liteTok.png)
+
+## Features
+
+- [ ] Authentication with Email & Password
+- [ ] Browse Video Catalog
+- [ ] Uploading Videos with Caption
+- [ ] Checkbox Item 3
 
 ## Getting Started
 

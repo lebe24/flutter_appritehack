@@ -29,7 +29,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>flutter_appritehack</title>
+  <title>Authentication complete</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
@@ -54,6 +54,12 @@
         }
       });
     });
+  </script>
+  <script>
+    window.opener.postMessage({
+      'flutter-web-auth-2': window.location.href
+    }, window.location.origin);
+    window.close();
   </script>
 </body>
 </html>
