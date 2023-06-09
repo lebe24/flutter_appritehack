@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_appritehack/src/constant/assets/svg_assets.dart';
 import 'package:flutter_appritehack/src/features/auth/view/sign_up.dart';
-import 'package:flutter_appritehack/src/features/onboarding/widget/button_widget.dart';
+import 'package:flutter_appritehack/src/common/button_widget.dart';
+import 'package:flutter_svg/svg.dart';
+
 
 class ModalPage extends StatelessWidget {
   const ModalPage({super.key});
@@ -53,10 +56,9 @@ class ModalPage extends StatelessWidget {
                         function: (){
                           Navigator.push(context, SignUpView.route());
                         },
-                        text: 'Sign Up',
                         color: Colors.black,
                         borderSideColor: Colors.white.withOpacity(0.4),
-                        textcolor: Colors.white,
+                        child:const Text('singup'),
                         ),
                       ),
                     ),
@@ -65,10 +67,9 @@ class ModalPage extends StatelessWidget {
                       child: Center(
                         child: CustomBtn(
                           function: (){},
-                          text: 'log in to tik',
                           color: Colors.white,
                           borderSideColor: Colors.grey.shade500,
-                          textcolor: Colors.black,
+                          child:const Text('login to tik'),
                         ),
                       ),
                     ),
@@ -77,13 +78,20 @@ class ModalPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Divider(
-                            color: Colors.black,
-                            thickness: 18),
+                          Expanded(
+                            child: Divider(
+                              thickness: 0.5,
+                              color: Colors.grey,
+                            ),
+                          ),
                           Text('OR',
                             style: TextStyle(color: Colors.black),
                           ),
-                          Divider(thickness: 18)
+                          Expanded(
+                            child: Divider(
+                              thickness: 0.5,
+                              color: Colors.grey,
+                            ),)
                         ],
                       ),
                     ),
@@ -92,10 +100,16 @@ class ModalPage extends StatelessWidget {
                       child: Center(
                         child: CustomBtn(
                         function: (){},
-                        text: 'Sign Up',
-                        color: Colors.black,
+                        color: Colors.white,
                         borderSideColor: Colors.white.withOpacity(0.4),
-                        textcolor: Colors.white,
+                        child: ListTile(
+                          leading: SvgPicture.asset(
+                            SvgAsset.google,
+                            width: 50,
+                            height: 50,
+                          ),
+                          title: Text('continue with google'),
+                        ),
                         ),
                       ),
                     ),
@@ -104,10 +118,52 @@ class ModalPage extends StatelessWidget {
                       child: Center(
                         child: CustomBtn(
                         function: (){},
-                        text: 'Sign Up',
-                        color: Colors.black,
+                        color: Colors.white,
                         borderSideColor: Colors.white.withOpacity(0.4),
-                        textcolor: Colors.white,
+                        child: ListTile(
+                          leading: SvgPicture.asset(
+                            SvgAsset.google,
+                            width: 50,
+                            height: 50,
+                          ),
+                          title: Text('continue with google'),
+                        ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:  EdgeInsets.all(20),
+                      child: Center(
+                        child: CustomBtn(
+                        function: (){},
+                        color: Colors.white,
+                        borderSideColor: Colors.white.withOpacity(0.4),
+                        child: ListTile(
+                          leading: SvgPicture.asset(
+                            SvgAsset.google,
+                            width: 50,
+                            height: 50,
+                          ),
+                          title: Text('continue with google'),
+                        ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:  EdgeInsets.all(20),
+                      child: Center(
+                        child: CustomBtn(
+                        function: (){},
+                        color: Colors.white,
+                        borderSideColor: Colors.white.withOpacity(0.4),
+                        child: ListTile(
+                          leading: SvgPicture.asset(
+                            SvgAsset.google,
+                            width: 50,
+                            height: 50,
+                          ),
+                          title: Text('continue with google'),
+                        ),
                         ),
                       ),
                     ),

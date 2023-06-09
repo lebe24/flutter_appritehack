@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_appritehack/src/constant/anime_constant.dart';
-import 'package:flutter_appritehack/src/features/onboarding/widget/modal_page.dart';
+import 'package:flutter_appritehack/src/features/onboarding/modal_page.dart';
 import 'package:video_player/video_player.dart';
 
 
@@ -12,7 +12,7 @@ class Onboard extends StatelessWidget {
     return const Scaffold(
       body:Stack(
         children:[
-           Center(child: DemoVideo()),
+         DemoVideo(),
         Positioned(
           bottom: 30,
           child: Getstarted())
@@ -36,32 +36,43 @@ class _DemoVideoState extends State<DemoVideo> {
   VoidCallback? listener;
   
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _controller = VideoPlayerController.network(
-  //       'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
-        
-  //     ..initialize().then((_) {
-  //       // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-  //       setState(() {});
-  //     })
-  //     ..play();
-  // }
+  @override
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(
+        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
+      ..initialize().then((_) {
+        _controller.setLooping(true); // Set looping to true
+        _controller.play(); // Start playing the video
+        setState(() {});
+      });
+  }
 
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   _controller.dispose();
-  // }
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    // return _controller.value.isInitialized ?  AspectRatio(
-    //               aspectRatio: 1,
-    //               child: VideoPlayer(_controller),
-    //             ) : Placeholder();
-    return Placeholder();
+    // if (_controller.value.isInitialized) {
+    //   final size = MediaQuery.of(context).size;
+    //   final videoAspectRatio = _controller.value.aspectRatio;
+
+    //   return  SizedBox(
+    //     width: size.width,
+    //     height: size.width / videoAspectRatio,
+    //     child: AspectRatio(
+    //       aspectRatio: videoAspectRatio,
+    //       child: VideoPlayer(_controller),
+    //     ),
+    //   );
+    // } else {
+    //   return const Placeholder();
+    // }
+    return const Placeholder();
   }
 }
 
@@ -165,5 +176,3 @@ class _GetstartedState extends State<Getstarted> with SingleTickerProviderStateM
     );
   }
 }
-
-

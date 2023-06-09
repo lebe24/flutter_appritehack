@@ -7,7 +7,7 @@ void main() async{
   runApp(
    const ProviderScope(
       child: MyApp(),
-    ));
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -26,28 +26,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-// Client client = Client()
-//     .setEndpoint('https://cloud.appwrite.io/v1')  // Your Appwrite Endpoint
-//     .setProject('6470f92cbd45b53dfad9'); 
-//   Account account = Account(client);
-
-// final user = await account.create(
-//     userId: ID.unique(),
-//     email: 'me@appwrite.io',
-//     password: 'password',
-//     name: 'My Name'
-// );
-
-// print({user});
-
-// final realtime = Realtime(client);
-// final subscription = realtime.subscribe(['files']);
-
-// subscription.stream.listen((response) {
-//     if (response.events.contains('buckets.*.files.*.create')) {
-//         // Log when a new file is uploaded
-//         print(response.payload);
-//     }
-// });

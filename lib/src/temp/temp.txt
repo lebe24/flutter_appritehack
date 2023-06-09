@@ -1,0 +1,161 @@
+// Client client = Client()
+//     .setEndpoint('https://cloud.appwrite.io/v1')  // Your Appwrite Endpoint
+//     .setProject('6470f92cbd45b53dfad9'); 
+//   Account account = Account(client);
+
+// final user = await account.create(
+//     userId: ID.unique(),
+//     email: 'me@appwrite.io',
+//     password: 'password',
+//     name: 'My Name'
+// );
+
+// print({user});
+
+// final realtime = Realtime(client);
+// final subscription = realtime.subscribe(['files']);
+
+// subscription.stream.listen((response) {
+//     if (response.events.contains('buckets.*.files.*.create')) {
+//         // Log when a new file is uploaded
+//         print(response.payload);
+//     }
+// });
+
+
+class MyVideoPlayer extends StatefulWidget {
+  @override
+  _MyVideoPlayerState createState() => _MyVideoPlayerState();
+}
+
+class _MyVideoPlayerState extends State<MyVideoPlayer> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(
+        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
+      ..initialize().then((_) {
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_controller.value.isInitialized) {
+      final size = MediaQuery.of(context).size;
+      final videoAspectRatio = _controller.value.aspectRatio;
+
+      return Container(
+        width: size.width,
+        height: size.width / videoAspectRatio,
+        child: AspectRatio(
+          aspectRatio: videoAspectRatio,
+          child: VideoPlayer(_controller),
+        ),
+      );
+    } else {
+      return CircularProgressIndicator();
+    }
+  }
+}
+
+
+import 'package:flutter/material.dart';
+
+class ExploreCard extends StatelessWidget {
+  const ExploreCard({super.key, required this.width, required this.height});
+
+  final double width;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    return  Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Container(
+          child: Stack(
+            children: [
+              Image.asset(
+                'assets/surf.jpg',
+                fit: BoxFit.cover,
+                width: 400,
+                height: 180,
+              ),
+              Positioned(
+                bottom: 30,
+                left: 20,
+                child: Text('Hello'))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+RichText(
+          text: TextSpan(
+            text: '\$${listing.price}',
+            style: const TextStyle(
+              color: Colors.pink,
+              fontWeight: FontWeight.w700,
+              fontSize: 14,
+            ),
+            children: const <TextSpan>[
+              TextSpan(
+                text: ' night',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ],
+          ),
+        ),
+
+
+import 'package:flutter/material.dart';
+
+class ExploreCard extends StatelessWidget {
+  const ExploreCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Card(
+      margin: EdgeInsets.all(10),
+      elevation: 5,
+      color: Colors.transparent,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Stack(
+          children: [
+            Image.asset(
+              'assets/surf.jpg',
+              fit: BoxFit.cover,
+              width: 400,
+              height: 180,
+            ),
+            Positioned(
+              bottom: 20,
+              left: 8,
+              child: Text(
+                'Surf',
+                textSpan: 
+              )
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

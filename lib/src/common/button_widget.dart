@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomBtn extends StatelessWidget {
-  const CustomBtn({
-     required this.function, required this.text, required this.color , required this.borderSideColor, required this.textcolor
+  const CustomBtn({super.key, 
+     required this.function, required this.color , required this.borderSideColor, required this.child
   });
 
   final VoidCallback function ;
-  final String text;
-  final Color color,textcolor;
-  final Color borderSideColor ;
+  final Color color;
+  final Color borderSideColor;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +23,7 @@ class CustomBtn extends StatelessWidget {
       ),
       elevation: 4.0, // Set the desired elevation value
     ),
-    child: Text(text,
-      style:  TextStyle(
-      color: textcolor,
-     ),
-    ),
+    child: child
     );
   }
 }
